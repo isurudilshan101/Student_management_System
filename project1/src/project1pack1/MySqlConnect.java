@@ -17,7 +17,7 @@ public class MySqlConnect {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/university","root","");
-             JOptionPane.showMessageDialog(null,"Connected to database succsess");
+             JOptionPane.showMessageDialog(null,"Connected to database succssess");
              return conn;
         }catch(Exception e){
      JOptionPane.showMessageDialog(null,e);

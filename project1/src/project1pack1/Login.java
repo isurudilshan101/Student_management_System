@@ -12,11 +12,12 @@ import javax.swing.*;
  * @author HP
  */
 public class Login extends javax.swing.JFrame {
-    private Object JOptioPane;
+   // private Object JOptionPane;
     
     Connection conn=null;
     PreparedStatement pst=null;
     ResultSet rs=null;
+    private Object MysqlConnect;
    
     
     
@@ -145,20 +146,29 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-       conn=MysqlConnect.ConnectDB();
+       MySqlConnect my =new  MySqlConnect();
+       conn= my.ConnectDB();
        String sql="Select * from login where username=? and password=?";
        try
        {
+           
            pst=conn.prepareStatement(sql);
            pst.setString(1,txtusername.getText());
            pst.setString(2,txtpass.getText());
            rs=pst.executeQuery();
            if(rs.next()){
-               JOptionPane.showMessageDialog(null, "welecome user");
+             JOptionPane.showMessageDialog(null, "welecome user");
                Main m=new Main();
                m.setVisible(true);
                
            }
+           else{
+               JOptionPane.showMessageDialog(null,"UserName and Password donot match");
+               txtusername.setText("");
+               txtpass.setText("");
+           }
+           
+       }catch(Exception e){
            
        }
         
