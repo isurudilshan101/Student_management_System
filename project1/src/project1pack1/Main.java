@@ -17,19 +17,22 @@ import net.proteanit.sql.DbUtils;
  * @author HP
  */
 public class Main extends javax.swing.JFrame {
-
+    String id;
    Connection conn=null;
     public Main() {
         initComponents();
-        displayTable();
+        //displayTable(id);
+        
     }
     
-    private void displayTable()
+    void displayTable(String id)
     {   
+        
          MySqlConnect ob1 =new  MySqlConnect();
          conn= ob1.ConnectDB();
         try{
-            String sql="select * from student_course where s_no='SE/2016/013'" ;
+            System.out.println(id);
+            String sql="select * from student_course where s_no='"+id +"'" ;
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             jTable1.setModel(DbUtils.resultSetToTableModel(rs));
@@ -198,8 +201,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
         
-       MySqlConnect my=new MySqlConnect();
-       my.ConnectDB();
+       
     }
      
     
@@ -215,4 +217,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    
 }

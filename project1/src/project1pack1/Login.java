@@ -17,7 +17,7 @@ public class Login extends javax.swing.JFrame {
     Connection conn=null;
     PreparedStatement pst=null;
     ResultSet rs=null;
-    private Object MysqlConnect;
+   private Object MysqlConnect; 
    
     
     
@@ -148,7 +148,7 @@ public class Login extends javax.swing.JFrame {
         
        MySqlConnect my =new  MySqlConnect();
        conn= my.ConnectDB();
-       String sql="Select * from login where username=? and password=?";
+       String sql="Select username,password,id from login where username=? and password=?";
        try
        {
            
@@ -156,9 +156,14 @@ public class Login extends javax.swing.JFrame {
            pst.setString(1,txtusername.getText());
            pst.setString(2,txtpass.getText());
            rs=pst.executeQuery();
+          
            if(rs.next()){
              JOptionPane.showMessageDialog(null, "welecome user");
+             String id= rs.getString("id");
+             
+           System.out.println(id);
                Main m=new Main();
+               m.displayTable(id);
                m.setVisible(true);
                
            }
@@ -167,6 +172,11 @@ public class Login extends javax.swing.JFrame {
                txtusername.setText("");
                txtpass.setText("");
            }
+//            String id= rs.getString("id");
+//           System.out.println(id);
+//           Main m= new Main();
+//            m.displayTable(id);
+//            m.setVisible(true);
            
        }catch(Exception e){
            
