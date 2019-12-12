@@ -177,6 +177,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         year y=new year();
         y.setVisible(true);
+        
+//        String selectedValue=jComboBox2.getSelectedItem().toString();
+//        jtext1.setText(selectedValue);
+        
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
@@ -210,6 +214,8 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
+                
+               
             }
         });
         
