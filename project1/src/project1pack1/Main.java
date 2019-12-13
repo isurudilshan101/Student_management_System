@@ -185,6 +185,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
+        if(jComboBox2.getSelectedItem()=="Software Engineering Teaching Unit"){
         year y=new year();
         y.setVisible(true);
         
@@ -192,7 +193,7 @@ public class Main extends javax.swing.JFrame {
 //        jtext1.setText(selectedValue);
         
     }//GEN-LAST:event_jComboBox2ActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -249,3 +250,4 @@ public class Main extends javax.swing.JFrame {
 
     
 }
+
