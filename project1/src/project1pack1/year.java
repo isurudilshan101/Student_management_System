@@ -103,10 +103,19 @@ public class year extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-                            // TODO add your handling code here:
-        year1 obj1=new year1();
-         obj1.setVisible(true);
+           
         
+       if(jComboBox1.getSelectedItem()=="Year 1"){
+        year1 obj1=new year1();
+        obj1.setVisible(true);
+        
+       }
+       
+       if(jComboBox1.getSelectedItem()=="Year 2"){
+        Year2 obj1=new Year2();
+        obj1.setVisible(true);
+        
+       }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
